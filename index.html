@@ -65,6 +65,23 @@
 
 <script>
   var clickCount = 0;
+  var popupWindow;
+
+  window.onload = function() {
+    openPopup();
+    };
+   function openPopup() {
+     // Open popup window in upper corner of monitor
+      var width = 400;
+      var height = 400;
+      var left = (screen.width - width) / 2;
+      var top = 0;
+      popupWindow = window.open('', 'popupWindow', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+     popupWindow.onbeforeunload = function() {
+        _paq.push(['trackEvent', 'Click Counter', 'Popup Closed']);
+     }
+   }
+  
   
   function incrementCounter() {
     clickCount++;
