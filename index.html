@@ -49,8 +49,11 @@
   function incrementCounter() {
     clickCount++;
     document.getElementById("clickCount").textContent = clickCount;
-
-    _paq.push(['trackEvent', 'Click Counter', 'Button Click']);
+    
+    if (clickCount === 1) {
+      // Track button click event only the first time
+      _paq.push(['trackEvent', 'Click Counter', 'Button Click']);
+    }
   }
 </script>
 
