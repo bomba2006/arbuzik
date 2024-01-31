@@ -84,6 +84,10 @@
      popupWindow.onbeforeunload = function() {
         _paq.push(['trackEvent', 'Click Counter', 'Popup Closed']);
      }
+
+     if (window.focus) {
+    popupWindow.focus();
+    }
    }
   
   
