@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Counter</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  button {
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<button id="clickButton" onclick="incrementCounter()">Click Me!</button>
+<p id="clickCount">0</p>
+
+<script>
+  var clickCount = 0;
+  
+  function incrementCounter() {
+    clickCount++;
+    document.getElementById("clickCount").textContent = clickCount;
+  }
+</script>
+
+</body>
+</html>
