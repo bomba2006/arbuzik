@@ -49,6 +49,8 @@
   function incrementCounter() {
     clickCount++;
     document.getElementById("clickCount").textContent = clickCount;
+
+    _paq.push(['trackEvent', 'Click Counter', 'Button Click']);
   }
 </script>
 
