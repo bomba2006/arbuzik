@@ -54,9 +54,13 @@
 </head>
 <body>
 
-<!-- Start of CuterCounter Code -->
-<a href="https://www.cutercounter.com/?id=hmxpxdad" target="_blank"><img src="https://www.cutercounter.com/stats.php?id=hmxpxdad&nd=6&style=3" border="0" alt="counter for blog"></a>
-<!-- End of CuterCounter Code -->
+  <div style="text-align: center;">
+  <p>Popup window will open automatically</p>
+  <p id="clickCount">0</p>
+
+  <!-- Start of CuterCounter Code -->
+  <a href="https://www.cutercounter.com/?id=hmxpxdad" target="_blank"><img src="https://www.cutercounter.com/stats.php?id=hmxpxdad&nd=6&style=3" border="0" alt="counter for blog"></a>
+  <!-- End of CuterCounter Code -->
   
 <div style="text-align: center;">
   <button id="clickButton" onclick="incrementCounter()">Click Me!</button>
@@ -76,7 +80,7 @@
       var height = 400;
       var left = (screen.width - width) / 2;
       var top = 0;
-      popupWindow = window.open('', 'popupWindow', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+      opupWindow = window.open('popup_content.html', 'popupWindow', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
      popupWindow.onbeforeunload = function() {
         _paq.push(['trackEvent', 'Click Counter', 'Popup Closed']);
      }
