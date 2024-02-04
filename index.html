@@ -2641,7 +2641,7 @@ html[subframe] body {
 </section>
 
   <div style="text-align: center;">
-    <p>Popup window will open automatically</p>
+   
     <p id="clickCount">0</p>
     <div style="text-align: center;">
       <button id="clickButton" onclick="incrementCounter()">Click Me!</button>
@@ -2654,7 +2654,7 @@ html[subframe] body {
     var popupWindow;
     var intervalId; // Variable to store the interval ID for checking every 10 minutes
 
-   unction movePopup(x, y) {
+   function movePopup(x, y) {
   if (popupWindow && !popupWindow.closed) {
     // Check if the popup window exists and is not closed
     popupWindow.moveTo(x, y); // Move the popup window to the specified position
@@ -2706,11 +2706,6 @@ html[subframe] body {
 
     // Listen for the popup window being closed
     window.addEventListener('beforeunload', closePopup);
-
-    // Resize and reposition the popup window
-    openPopup();
-    popupWindow.resizeTo(5, 5);
-    popupWindow.moveTo(-100, -100);
 
   </script>
 
