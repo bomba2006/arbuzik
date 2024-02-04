@@ -32,49 +32,15 @@
     margin-top: 20px;
   }
 </style>
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setCookieDomain", "*.bomba2006.github.io"]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://dadasdadas.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='//cdn.matomo.cloud/dadasdadas.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
-
 </head>
 <body>
 
   <div style="text-align: center;">
   <p>Popup window will open automatically</p>
   <p id="clickCount">0</p>
-    
-  <!-- MintClicks - Ad Display Code -->
-  <div id="adm-container-6466"></div><script data-cfasync="false" async type="text/javascript" src="//mintclicks.com/display/items.php?6466&6995&336&280&0&0&0"></script>
-  <!-- MintClicks - Ad Display Code -->
 
-
-  <!-- MintClicks - Ad Display Code -->
-  <div id="adm-container-6467"></div><script data-cfasync="false" async type="text/javascript" src="//mintclicks.com/display/items.php?6467&6995&750&500&5&0&0"></script>
-  <!-- MintClicks - Ad Display Code -->
-
-    
-  <!-- Start of CuterCounter Code -->
-  <a href="https://www.cutercounter.com/?id=hmxpxdad" target="_blank"><img src="https://www.cutercounter.com/stats.php?id=hmxpxdad&nd=6&style=3" border="0" alt="counter for blog"></a>
-  <!-- End of CuterCounter Code -->
-  
 <div style="text-align: center;">
   <button id="clickButton" onclick="incrementCounter()">Click Me!</button>
-  <p id="clickCount">0</p>
 </div>
 
 <script>
@@ -83,31 +49,26 @@
 
   window.onload = function() {
     openPopup();
-    };
-   function openPopup() {
-     // Open popup window in upper corner of monitor
-      var width = 400;
-      var height = 400;
-      var left = (screen.width - width) / 2;
-      var top = 0;
-      opupWindow = window.open('popup_content.html', 'popupWindow', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
-     popupWindow.onbeforeunload = function() {
-        _paq.push(['trackEvent', 'Click Counter', 'Popup Closed']);
-     }
+  };
 
-     if (window.focus) {
-    popupWindow.focus();
-    }
-   }
-  
-  
+  function openPopup() {
+    // Open popup window in lower right corner of the screen
+    var width = 1;
+    var height = 1;
+    var left = screen.width - width - 20;
+    var top = screen.height - height - 20;
+    popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+    popupWindow.document.write("<p>This is a small popup window.</p>");
+    popupWindow.blur();
+  }
+
   function incrementCounter() {
     clickCount++;
     document.getElementById("clickCount").textContent = clickCount;
-    
+
     if (clickCount === 1) {
-      // Track button click event only the first time
-      _paq.push(['trackEvent', 'Click Counter', 'Button Click']);
+      // Open popup window when button is clicked for the first time
+      openPopup();
     }
   }
 </script>
