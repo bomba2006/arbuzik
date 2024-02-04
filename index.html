@@ -53,18 +53,20 @@
 
   function openPopup() {
   // Define very small width and height for the popup window
-  var width = 1;
-  var height = 1;
+  var width = 10;
+  var height = 10;
 
   // Position the popup window outside the visible area of the screen
   var left = screen.width + 100; // Move the window to the right of the screen
   var top = screen.height + 100; // Move the window below the screen
 
   // Open the popup window with the specified dimensions and position
-  popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+  // Also, specify the window features to hide the address bar
+  popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',location=no,menubar=no,status=no,titlebar=no,toolbar=no');
 
   popupWindow.blur(); // This line ensures the popup window loses focus
 }
+
 
   function incrementCounter() {
     clickCount++;
