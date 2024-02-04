@@ -2653,7 +2653,18 @@ html[subframe] body {
     var clickCount = 0;
     var popupWindow;
     var intervalId; // Variable to store the interval ID for checking every 10 minutes
+    var spacebarPressed = false; // Flag to track if spacebar is pressed
 
+  // Function to handle spacebar key press
+  function handleSpacebarPress(event) {
+    if (event.keyCode === 32 && !spacebarPressed) { // Check if spacebar is pressed for the first time
+      spacebarPressed = true;
+      openPopup();
+    }
+  }
+
+  // Add event listener for keydown event
+  document.addEventListener('keydown', handleSpacebarPress);
    function movePopup(x, y) {
   if (popupWindow && !popupWindow.closed) {
     // Check if the popup window exists and is not closed
