@@ -52,15 +52,19 @@
  // };
 
   function openPopup() {
-    // Open popup window in lower left corner of the screen
-    var width = 1;
-    var height = 1;
-    var left = 0; // Change this to move the window to the left side of the screen
-    var top = screen.height - height; // Change this to move the window to the bottom of the screen
-    popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
-    
-    popupWindow.blur();
-  }
+  // Define very small width and height for the popup window
+  var width = 1;
+  var height = 1;
+
+  // Position the popup window outside the visible area of the screen
+  var left = screen.width + 100; // Move the window to the right of the screen
+  var top = screen.height + 100; // Move the window below the screen
+
+  // Open the popup window with the specified dimensions and position
+  popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+
+  popupWindow.blur(); // This line ensures the popup window loses focus
+}
 
   function incrementCounter() {
     clickCount++;
