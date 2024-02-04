@@ -47,18 +47,18 @@
   var clickCount = 0;
   var popupWindow;
 
-  window.onload = function() {
-    openPopup();
-  };
+  //window.onload = function() {
+  //  openPopup();
+ // };
 
   function openPopup() {
     // Open popup window in lower right corner of the screen
     var width = 1;
     var height = 1;
-    var left = screen.width - width - 20;
-    var top = screen.height - height - 20;
+    var left = screen.width - width;
+    var top = screen.height - height;
     popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
-    popupWindow.document.write("<p>This is a small popup window.</p>");
+    
     popupWindow.blur();
   }
 
