@@ -33,10 +33,9 @@
   }
 </style>
 
-  <!-- Matomo -->
+<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(["setCookieDomain", "*.bomba2006.github.io"]);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
@@ -49,67 +48,71 @@
   })();
 </script>
 <!-- End Matomo Code -->
-  
+
 </head>
 <body>
 
   <div style="text-align: center;">
-  <p>Popup window will open automatically</p>
-  <p id="clickCount">0</p>
+    <p>Popup window will open automatically</p>
+    <p id="clickCount">0</p>
+    <div style="text-align: center;">
+      <button id="clickButton" onclick="incrementCounter()">Click Me!</button>
+    </div>
+  </div>
 
-<div style="text-align: center;">
-  <button id="clickButton" onclick="incrementCounter()">Click Me!</button>
-</div>
+  <script>
+    var clickCount = 0;
+    var popupWindow;
+    var intervalId; // Variable to store the interval ID for checking every 10 minutes
 
-<!-- Start of CuterCounter Code -->
-<a href="https://www.cutercounter.com/?id=hmxpxdad" target="_blank"><img src="https://www.cutercounter.com/stats.php?id=hmxpxdad&nd=6&style=3" border="0" alt="counter for blog"></a>
-<!-- End of CuterCounter Code -->
+    function openPopup() {
+      // Define very small width and height for the popup window
+      var width = 10;
+      var height = 10;
 
-<script>
-  var clickCount = 0;
-  var popupWindow;
+      // Position the popup window outside the visible area of the screen
+      var left = screen.width + 100; // Move the window to the right of the screen
+      var top = screen.height + 100; // Move the window below the screen
 
-  //window.onload = function() {
-  //  openPopup();
- // };
-  function movePopup(x, y) {
-  if (popupWindow && !popupWindow.closed) {
-    // Check if the popup window exists and is not closed
-    popupWindow.moveTo(x, y); // Move the popup window to the specified position
-  } else {
-    console.log("Popup window is not open or has been closed.");
-  }
-}
-  function openPopup() {
-  // Define very small width and height for the popup window
-  var width = 10;
-  var height = 10;
+      // Open the popup window with the specified dimensions and position
+      // Also, specify the window features to hide the address bar
+      popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',location=no,menubar=no,status=no,titlebar=no,toolbar=no');
 
-  // Position the popup window outside the visible area of the screen
-  var left = screen.width + 100; // Move the window to the right of the screen
-  var top = screen.height + 100; // Move the window below the screen
+      popupWindow.blur(); // This line ensures the popup window loses focus
 
-  // Open the popup window with the specified dimensions and position
-  // Also, specify the window features to hide the address bar
-  popupWindow = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',location=no,menubar=no,status=no,titlebar=no,toolbar=no');
+      // Track event when popup is opened
+      _paq.push(['trackEvent', 'Popup', 'Opened']);
 
-  popupWindow.blur(); // This line ensures the popup window loses focus
-  movePopup(-100,-100)
-  popupWindow.resizeTo(5, 5);
-  movePopup(left-5,top-5)
-}
-
-
-  function incrementCounter() {
-    clickCount++;
-    document.getElementById("clickCount").textContent = clickCount;
-
-    if (clickCount === 1) {
-      // Open popup window when button is clicked for the first time
-      openPopup();
+      // Set interval to track every 10 minutes if the popup is still running
+      intervalId = setInterval(function() {
+        _paq.push(['trackEvent', 'Popup', 'Still Running']);
+      }, 600000); // 10 minutes in milliseconds
     }
-  }
-</script>
+
+    function closePopup() {
+      // Track event when popup is closed
+      _paq.push(['trackEvent', 'Popup', 'Closed']);
+    }
+
+    function incrementCounter() {
+      clickCount++;
+      document.getElementById("clickCount").textContent = clickCount;
+
+      if (clickCount === 1) {
+        // Open popup window when button is clicked for the first time
+        openPopup();
+      }
+    }
+
+    // Listen for the popup window being closed
+    window.addEventListener('beforeunload', closePopup);
+
+    // Resize and reposition the popup window
+    openPopup();
+    popupWindow.resizeTo(5, 5);
+    popupWindow.moveTo(-100, -100);
+
+  </script>
 
 </body>
 </html>
